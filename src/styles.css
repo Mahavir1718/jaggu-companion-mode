@@ -1,0 +1,175 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap");
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+
+  --font-heading: "Sora", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-assistant: "Manrope", sans-serif;
+
+  --radius-companion: 22px;
+}
+
+:root {
+  --radius: 1.375rem;
+
+  --background: oklch(0.145 0.01 285);
+  --foreground: oklch(1 0 0);
+
+  --card: oklch(0.21 0.01 285);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.21 0.01 285);
+  --popover-foreground: oklch(1 0 0);
+
+  --primary: oklch(0.625 0.21 295);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.72 0.15 295);
+  --secondary-foreground: oklch(0.145 0.01 285);
+
+  --muted: oklch(0.27 0.01 285);
+  --muted-foreground: oklch(0.7 0.01 285);
+  --accent: oklch(0.27 0.01 285);
+  --accent-foreground: oklch(1 0 0);
+
+  --destructive: oklch(0.63 0.23 25);
+  --destructive-foreground: oklch(1 0 0);
+
+  --border: oklch(0.32 0.01 285);
+  --input: oklch(0.27 0.01 285);
+  --ring: oklch(0.625 0.21 295);
+
+  --surface: oklch(0.21 0.01 285);
+  --elevated: oklch(0.27 0.01 285);
+  --success: oklch(0.72 0.19 150);
+  --warning: oklch(0.77 0.16 70);
+  --error: oklch(0.63 0.23 25);
+
+  --background-hex: #09090b;
+  --surface-hex: #18181b;
+  --elevated-hex: #27272a;
+  --primary-hex: #8b5cf6;
+  --secondary-hex: #a78bfa;
+
+  --gradient-glow: radial-gradient(
+    circle at 50% 40%,
+    rgba(139, 92, 246, 0.35),
+    rgba(139, 92, 246, 0) 60%
+  );
+  --gradient-primary: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  --shadow-glow: 0 0 40px -8px rgba(139, 92, 246, 0.5);
+  --shadow-soft: 0 16px 40px -16px rgba(0, 0, 0, 0.6);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html,
+body {
+  background-color: #09090b;
+  color: #ffffff;
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+}
+
+.glass {
+  background: rgba(39, 39, 42, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(63, 63, 70, 0.6);
+}
+
+.glow-purple {
+  box-shadow: var(--shadow-glow);
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-14px) scale(1.015);
+  }
+}
+.animate-float {
+  animation: float-slow 5s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.animate-pulse-ring {
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* hide scrollbar but keep scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
